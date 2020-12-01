@@ -32,6 +32,7 @@ func main() {
 }
 
 func readInput(inputPath string) ([]int, error) {
+	// Read ints from a file with each on a newline
 	var data []int
 	file, err := os.Open(inputPath)
 	if err != nil {
@@ -50,6 +51,7 @@ func readInput(inputPath string) ([]int, error) {
 }
 
 func findPairThatSumsTo(sum int, data []int) (int, int, error) {
+	// Find the pair of numbers that adds up to the given sum
 	found := make(map[int]bool)
 	for i := 0; i < len(data); i++ {
 		need := sum - data[i]
@@ -62,6 +64,7 @@ func findPairThatSumsTo(sum int, data []int) (int, int, error) {
 }
 
 func findTripletThatSumsTo(sum int, data []int) (int, int, int, error) {
+	// Find the triplet of numbers that adds up to the given sum
 	for i := 0; i < len(data); i++ {
 		found := make(map[int]bool)
 		for j := i; j < len(data); j++ {

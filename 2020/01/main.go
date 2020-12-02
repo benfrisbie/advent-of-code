@@ -11,28 +11,29 @@ func main() {
 	sum := 2020
 
 	// Read input
-	data, err := readInput("input.txt")
+	data, err := ReadInput("input.txt")
 	if err != nil {
 		panic(err)
 	}
 
 	// Part 1: Find the pair that sums to 2020
-	a, b, err := findPairThatSumsTo(sum, data)
+	a, b, err := FindPairThatSumsTo(sum, data)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("pair = (%d, %d), product = %d\n", a, b, a*b)
 
 	// Part 2: Find the triplet that sums to 2020
-	a, b, c, err := findTripletThatSumsTo(sum, data)
+	a, b, c, err := FindTripletThatSumsTo(sum, data)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("triplet = (%d, %d, %d), product = %d\n", a, b, c, a*b*c)
 }
 
-func readInput(inputPath string) ([]int, error) {
-	// Read ints from a file with each on a newline
+// ReadInput reads the input file into a slice of ints
+func ReadInput(inputPath string) ([]int, error) {
+	// Loop through file and convert each line to an int
 	var data []int
 	file, err := os.Open(inputPath)
 	if err != nil {
@@ -50,8 +51,8 @@ func readInput(inputPath string) ([]int, error) {
 	return data, nil
 }
 
-func findPairThatSumsTo(sum int, data []int) (int, int, error) {
-	// Find the pair of numbers that adds up to the given sum
+// FindPairThatSumsTo finds the pair of number that adds up to the given sum
+func FindPairThatSumsTo(sum int, data []int) (int, int, error) {
 	found := make(map[int]bool)
 	for i := 0; i < len(data); i++ {
 		need := sum - data[i]
@@ -63,11 +64,11 @@ func findPairThatSumsTo(sum int, data []int) (int, int, error) {
 	return 0, 0, fmt.Errorf("No pair found")
 }
 
-func findTripletThatSumsTo(sum int, data []int) (int, int, int, error) {
-	// Find the triplet of numbers that adds up to the given sum
-	for i := 0; i < len(data); i++ {
+// FindTripletThatSumsTo finds the triplet of numbers that adds up to the given sum
+func FindTripletThatSumsTo(sum int, data []int) (int, int, int, error) {
+	for i := 0; i < len(data)-1; i++ {
 		found := make(map[int]bool)
-		for j := i; j < len(data); j++ {
+		for j := i + 1; j < len(data); j++ {
 			need := sum - data[i] - data[j]
 			if _, ok := found[need]; ok {
 				return data[i], data[j], sum - data[i] - data[j], nil

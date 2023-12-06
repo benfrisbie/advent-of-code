@@ -23,7 +23,7 @@ func TestPart2Example(t *testing.T) {
 	want := 281
 	got := Part2(data)
 	if got != want {
-		t.Errorf("Part1() = %v, want %v", got, want)
+		t.Errorf("Part2() = %v, want %v", got, want)
 	}
 }
 

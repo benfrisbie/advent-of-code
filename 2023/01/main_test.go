@@ -3,7 +3,7 @@ package main
 import "testing"
 
 func TestPart1Example(t *testing.T) {
-	data := ReadInput("testdata/part1.txt")
+	data := ReadInput("testdata/part1-example.txt")
 	want := 142
 	got := Part1(data)
 	if got != want {
@@ -12,14 +12,14 @@ func TestPart1Example(t *testing.T) {
 }
 
 func BenchmarkPart1Example(b *testing.B) {
-	data := ReadInput("testdata/part1.txt")
+	data := ReadInput("testdata/part1-example.txt")
 	for i := 0; i < b.N; i++ {
 		Part1(data)
 	}
 }
 
 func TestPart2Example(t *testing.T) {
-	data := ReadInput("testdata/part2.txt")
+	data := ReadInput("testdata/part2-example.txt")
 	want := 281
 	got := Part2(data)
 	if got != want {
@@ -28,7 +28,7 @@ func TestPart2Example(t *testing.T) {
 }
 
 func BenchmarkPart2Example(b *testing.B) {
-	data := ReadInput("testdata/part2.txt")
+	data := ReadInput("testdata/part2-example.txt")
 	for i := 0; i < b.N; i++ {
 		Part2(data)
 	}

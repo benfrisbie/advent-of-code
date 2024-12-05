@@ -50,18 +50,18 @@ func BenchmarkPart1(b *testing.B) {
 	}
 }
 
-// func TestPart2(t *testing.T) {
-// 	data := ReadInput("input.txt")
-// 	want := 717
-// 	got := Part2(data)
-// 	if got != want {
-// 		t.Errorf("Part2() = %v, want %v", got, want)
-// 	}
-// }
+func TestPart2(t *testing.T) {
+	data := ReadInput("input.txt")
+	want := 717
+	got := Part2(data)
+	if got != want {
+		t.Errorf("Part2() = %v, want %v", got, want)
+	}
+}
 
-// func BenchmarkPart2(b *testing.B) {
-// 	data := ReadInput("input.txt")
-// 	for i := 0; i < b.N; i++ {
-// 		Part2(data)
-// 	}
-// }
+func BenchmarkPart2(b *testing.B) {
+	data := ReadInput("input.txt")
+	for i := 0; i < b.N; i++ {
+		Part2(data)
+	}
+}
